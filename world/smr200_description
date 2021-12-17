@@ -1,0 +1,1766 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name='smr200_description'>
+      <link name='base_footprint'>
+        <inertial>
+          <pose>-0.025422 -0.001595 0.213203 0 -0 0</pose>
+          <mass>106.267</mass>
+          <inertia>
+            <ixx>0.510178</ixx>
+            <ixy>0.0159424</ixy>
+            <ixz>-0.0118764</ixz>
+            <iyy>1.35462</iyy>
+            <iyz>-0.000995484</iyz>
+            <izz>1.5402</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+          <pose>0 0 0.3478 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/base_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__depthcam_front_left_link_collision_1'>
+          <pose>0.40471 0.033483 0.10875 1.5013 -0.26357 0.5236</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/depthcam_front_left_link.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__depthcam_front_right_link_collision_2'>
+          <pose>0.40471 -0.033483 0.10875 -1.5013 -0.26357 -0.5236</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/depthcam_front_right_link.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__depthcam_front_top_link_collision_3'>
+          <pose>0.451 0.0081 0.2598 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/depthcam_front_top_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__imu_link_collision_4'>
+          <pose>0 0 0.3248 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/imu_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__lidar_front_link_collision_5'>
+          <pose>0.396 -0.23499 0.20504 0 0 -0.7854</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/lidar_front_link.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__lidar_rear_link_collision_6'>
+          <pose>-0.38401 0.235 0.206 0 -0 2.3562</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/lidar_rear_link.STL</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_front_left_link_collision_7'>
+          <pose>0.44853 0.17 0.12362 0 -0.10436 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_left_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_front_left_mid_link_collision_8'>
+          <pose>0.43425 0.27325 0.12362 0 -0.10436 0.7854</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_left_mid_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_front_left_side_link_collision_9'>
+          <pose>0.351 0.28753 0.12362 -0 -0.10436 1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_left_side_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_front_right_link_collision_10'>
+          <pose>0.44853 -0.17 0.12362 0 -0.10436 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_right_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_front_right_mid_link_collision_11'>
+          <pose>0.43425 -0.27325 0.12362 0 -0.10436 -0.7854</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_right_mid_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_front_right_side_link_collision_12'>
+          <pose>0.351 -0.28753 0.12362 0 -0.10436 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_right_side_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_rear_left_link_collision_13'>
+          <pose>-0.43653 0.17 0.12362 0 -0.10436 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_left_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_rear_left_mid_link_collision_14'>
+          <pose>-0.42225 0.27325 0.12362 0 -0.10436 2.3562</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_left_mid_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_rear_left_side_link_collision_15'>
+          <pose>-0.339 0.28753 0.12362 -0 -0.10436 1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_left_side_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_rear_right_link_collision_16'>
+          <pose>-0.43653 -0.17 0.12362 0 -0.10436 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_right_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_rear_right_mid_link_collision_17'>
+          <pose>-0.42225 -0.27325 0.12362 -0 -0.10436 -2.3562</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_right_mid_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_footprint_fixed_joint_lump__ultrasonic_rear_right_side_link_collision_18'>
+          <pose>-0.339 -0.28753 0.12362 0 -0.10436 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_right_side_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='base_footprint_fixed_joint_lump__base_link_visual'>
+          <pose>0 0 0.3478 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/base_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__depthcam_front_left_link_visual_1'>
+          <pose>0.40471 0.033483 0.10875 1.5013 -0.26357 0.5236</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/depthcam_front_left_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__depthcam_front_right_link_visual_2'>
+          <pose>0.40471 -0.033483 0.10875 -1.5013 -0.26357 -0.5236</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/depthcam_front_right_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__depthcam_front_top_link_visual_3'>
+          <pose>0.451 0.0081 0.2598 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/depthcam_front_top_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__imu_link_visual_4'>
+          <pose>0 0 0.3248 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/imu_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__lidar_front_link_visual_5'>
+          <pose>0.396 -0.23499 0.20504 0 0 -0.7854</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/lidar_front_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__lidar_rear_link_visual_6'>
+          <pose>-0.38401 0.235 0.206 0 -0 2.3562</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/lidar_rear_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_front_left_link_visual_7'>
+          <pose>0.44853 0.17 0.12362 0 -0.10436 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_left_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_front_left_mid_link_visual_8'>
+          <pose>0.43425 0.27325 0.12362 0 -0.10436 0.7854</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_left_mid_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_front_left_side_link_visual_9'>
+          <pose>0.351 0.28753 0.12362 -0 -0.10436 1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_left_side_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_front_right_link_visual_10'>
+          <pose>0.44853 -0.17 0.12362 0 -0.10436 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_right_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_front_right_mid_link_visual_11'>
+          <pose>0.43425 -0.27325 0.12362 0 -0.10436 -0.7854</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_right_mid_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_front_right_side_link_visual_12'>
+          <pose>0.351 -0.28753 0.12362 0 -0.10436 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_front_right_side_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_rear_left_link_visual_13'>
+          <pose>-0.43653 0.17 0.12362 0 -0.10436 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_left_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_rear_left_mid_link_visual_14'>
+          <pose>-0.42225 0.27325 0.12362 0 -0.10436 2.3562</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_left_mid_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_rear_left_side_link_visual_15'>
+          <pose>-0.339 0.28753 0.12362 -0 -0.10436 1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_left_side_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_rear_right_link_visual_16'>
+          <pose>-0.43653 -0.17 0.12362 0 -0.10436 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_right_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_rear_right_mid_link_visual_17'>
+          <pose>-0.42225 -0.27325 0.12362 -0 -0.10436 -2.3562</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_right_mid_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='base_footprint_fixed_joint_lump__ultrasonic_rear_right_side_link_visual_18'>
+          <pose>-0.339 -0.28753 0.12362 0 -0.10436 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/ultrasonic_rear_right_side_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <sensor name='depthcam_front_left' type='depth'>
+          <update_rate>20</update_rate>
+          <camera>
+            <horizontal_fov>1.51844</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.05</near>
+              <far>3.5</far>
+            </clip>
+          </camera>
+          <plugin name='depthcam_front_left_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>depthcam_front_left</cameraName>
+            <imageTopicName>depthcam_front_left/color/image_raw</imageTopicName>
+            <cameraInfoTopicName>depthcam_front_left/color/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>depthcam_front_left/depth/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>depthcam_front_left/depth/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>depthcam_front_left/depth/points</pointCloudTopicName>
+            <frameName>depthcam_front_left_view_link</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose>0.40471 0.033483 0.10875 1.5013 -0.26357 0.5236</pose>
+        </sensor>
+        <sensor name='depthcam_front_right' type='depth'>
+          <update_rate>20</update_rate>
+          <camera>
+            <horizontal_fov>1.51844</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>480</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.05</near>
+              <far>3.5</far>
+            </clip>
+          </camera>
+          <plugin name='depthcam_front_right_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>depthcam_front_right</cameraName>
+            <imageTopicName>depthcam_front_right/color/image_raw</imageTopicName>
+            <cameraInfoTopicName>depthcam_front_right/color/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>depthcam_front_right/depth/image_raw</depthImageTopicName>
+            <depthImageInfoTopicName>depthcam_front_right/depth/camera_info</depthImageInfoTopicName>
+            <pointCloudTopicName>depthcam_front_right/depth/points</pointCloudTopicName>
+            <frameName>depthcam_front_right_view_link</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose>0.40471 -0.033483 0.10875 -1.5013 -0.26357 -0.5236</pose>
+        </sensor>
+        <sensor name='lidar_front_sensor' type='gpu_ray'>
+          <visualize>0</visualize>
+          <update_rate>40</update_rate>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>3000</samples>
+                <resolution>0.12</resolution>
+                <min_angle>-2.3562</min_angle>
+                <max_angle>2.3562</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>1</samples>
+                <min_angle>0</min_angle>
+                <max_angle>0</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.05</min>
+              <max>30</max>
+              <resolution>0.05</resolution>
+            </range>
+            <noise>
+              <type>gaussian</type>
+              <mean>0</mean>
+              <stddev>0.01</stddev>
+            </noise>
+          </ray>
+          <plugin name='gazebo_ros_lidar_front_controller' filename='libgazebo_ros_gpu_laser.so'>
+            <topicName>scan_front</topicName>
+            <frameName>lidar_front_link</frameName>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose>0.396 -0.23499 0.20504 0 0 -0.7854</pose>
+        </sensor>
+        <sensor name='lidar_rear_sensor' type='gpu_ray'>
+          <visualize>0</visualize>
+          <update_rate>40</update_rate>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>3000</samples>
+                <resolution>0.12</resolution>
+                <min_angle>-2.3562</min_angle>
+                <max_angle>2.3562</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>1</samples>
+                <min_angle>0</min_angle>
+                <max_angle>0</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.05</min>
+              <max>30</max>
+              <resolution>0.05</resolution>
+            </range>
+            <noise>
+              <type>gaussian</type>
+              <mean>0</mean>
+              <stddev>0.01</stddev>
+            </noise>
+          </ray>
+          <plugin name='gazebo_ros_lidar_rear_controller' filename='libgazebo_ros_gpu_laser.so'>
+            <topicName>scan_rear</topicName>
+            <frameName>lidar_rear_link</frameName>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose>-0.38401 0.235 0.206 0 -0 2.3562</pose>
+        </sensor>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='caster_rear_left_joint' type='revolute'>
+        <pose relative_to='base_footprint'>-0.299 0.21 0.102 0 -0 0</pose>
+        <parent>base_footprint</parent>
+        <child>caster_rear_left_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='caster_rear_left_link'>
+        <pose relative_to='caster_rear_left_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.009168 0.000149 -0.02325 0 -0 0</pose>
+          <mass>0.148885</mass>
+          <inertia>
+            <ixx>8.24464e-05</ixx>
+            <ixy>1.14375e-08</ixy>
+            <ixz>-1.83744e-05</ixz>
+            <iyy>8.10551e-05</iyy>
+            <iyz>1.10685e-08</iyz>
+            <izz>0.000103111</izz>
+          </inertia>
+        </inertial>
+        <collision name='caster_rear_left_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_rear_left_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='caster_rear_left_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_rear_left_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='caster_wheel_rear_left_joint' type='revolute'>
+        <pose relative_to='caster_rear_left_link'>-0.038 0 -0.062 -1.5708 0 0</pose>
+        <parent>caster_rear_left_link</parent>
+        <child>caster_wheel_rear_left_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='caster_wheel_rear_left_link'>
+        <pose relative_to='caster_wheel_rear_left_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-2.8e-05 -2.1e-05 -1e-05 0 -0 0</pose>
+          <mass>0.286815</mass>
+          <inertia>
+            <ixx>0.000143519</ixx>
+            <ixy>1.53303e-08</ixy>
+            <ixz>-1.63294e-08</ixz>
+            <iyy>0.000143501</iyy>
+            <iyz>-4.50288e-08</iyz>
+            <izz>0.000245135</izz>
+          </inertia>
+        </inertial>
+        <collision name='caster_wheel_rear_left_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_wheel_rear_left_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='caster_wheel_rear_left_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_wheel_rear_left_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='caster_rear_right_joint' type='revolute'>
+        <pose relative_to='base_footprint'>-0.299 -0.21 0.102 0 -0 0</pose>
+        <parent>base_footprint</parent>
+        <child>caster_rear_right_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='caster_rear_right_link'>
+        <pose relative_to='caster_rear_right_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.009168 0.000149 -0.02325 0 -0 0</pose>
+          <mass>0.148885</mass>
+          <inertia>
+            <ixx>8.24464e-05</ixx>
+            <ixy>1.14375e-08</ixy>
+            <ixz>-1.83744e-05</ixz>
+            <iyy>8.10551e-05</iyy>
+            <iyz>1.10685e-08</iyz>
+            <izz>0.000103111</izz>
+          </inertia>
+        </inertial>
+        <collision name='caster_rear_right_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_rear_right_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='caster_rear_right_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_rear_right_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='caster_wheel_rear_right_joint' type='revolute'>
+        <pose relative_to='caster_rear_right_link'>-0.038 0.001 -0.062 1.5708 -0 0</pose>
+        <parent>caster_rear_right_link</parent>
+        <child>caster_wheel_rear_right_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='caster_wheel_rear_right_link'>
+        <pose relative_to='caster_wheel_rear_right_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-2.8e-05 2.1e-05 1e-05 0 -0 0</pose>
+          <mass>0.286815</mass>
+          <inertia>
+            <ixx>0.000143519</ixx>
+            <ixy>-1.53303e-08</ixy>
+            <ixz>1.63294e-08</ixz>
+            <iyy>0.000143501</iyy>
+            <iyz>-4.50288e-08</iyz>
+            <izz>0.000245135</izz>
+          </inertia>
+        </inertial>
+        <collision name='caster_wheel_rear_right_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_wheel_rear_right_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='caster_wheel_rear_right_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_wheel_rear_right_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='swing_arm_left_joint' type='revolute'>
+        <pose relative_to='base_footprint'>0.1575 0.21 0.1298 -1.5708 0 0</pose>
+        <parent>base_footprint</parent>
+        <child>swing_arm_left_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='swing_arm_left_link'>
+        <pose relative_to='swing_arm_left_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.083791 0.023764 -0.044602 0 -0 0</pose>
+          <mass>13.9</mass>
+          <inertia>
+            <ixx>0.017736</ixx>
+            <ixy>0.0036377</ixy>
+            <ixz>3.2937e-06</ixz>
+            <iyy>0.046908</iyy>
+            <iyz>-4.7587e-06</iyz>
+            <izz>0.052747</izz>
+          </inertia>
+        </inertial>
+        <collision name='swing_arm_left_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/swing_arm_left_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='swing_arm_left_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/swing_arm_left_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='caster_front_left_joint' type='revolute'>
+        <pose relative_to='swing_arm_left_link'>0.1575 0.029 -0.0125 1.5708 -0 0</pose>
+        <parent>swing_arm_left_link</parent>
+        <child>caster_front_left_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='caster_front_left_link'>
+        <pose relative_to='caster_front_left_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.009168 0.000149 -0.02325 0 -0 0</pose>
+          <mass>0.148885</mass>
+          <inertia>
+            <ixx>8.24464e-05</ixx>
+            <ixy>1.14375e-08</ixy>
+            <ixz>-1.83744e-05</ixz>
+            <iyy>8.10551e-05</iyy>
+            <iyz>1.10685e-08</iyz>
+            <izz>0.000103111</izz>
+          </inertia>
+        </inertial>
+        <collision name='caster_front_left_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_front_left_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='caster_front_left_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_front_left_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='caster_wheel_front_left_joint' type='revolute'>
+        <pose relative_to='caster_front_left_link'>-0.038 0 -0.062 -1.5708 0 0</pose>
+        <parent>caster_front_left_link</parent>
+        <child>caster_wheel_front_left_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='caster_wheel_front_left_link'>
+        <pose relative_to='caster_wheel_front_left_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>9e-06 3.4e-05 1e-05 0 -0 0</pose>
+          <mass>0.286815</mass>
+          <inertia>
+            <ixx>0.000143493</ixx>
+            <ixy>4.40244e-09</ixy>
+            <ixz>-3.53813e-08</ixz>
+            <iyy>0.000143527</iyy>
+            <iyz>-3.22863e-08</iyz>
+            <izz>0.000245135</izz>
+          </inertia>
+        </inertial>
+        <collision name='caster_wheel_front_left_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_wheel_front_left_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='caster_wheel_front_left_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_wheel_front_left_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel_left_joint' type='revolute'>
+        <pose relative_to='swing_arm_left_link'>-0.1575 0.054 0.037 0 -0 0</pose>
+        <parent>swing_arm_left_link</parent>
+        <child>wheel_left_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <effort>100</effort>
+            <velocity>50</velocity>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='wheel_left_link'>
+        <pose relative_to='wheel_left_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 9.3e-05 3.3e-05 0 -0 0</pose>
+          <mass>4.92029</mass>
+          <inertia>
+            <ixx>0.00862426</ixx>
+            <ixy>2.70523e-08</ixy>
+            <ixz>-4.32845e-09</ixz>
+            <iyy>0.00861562</iyy>
+            <iyz>-2.85497e-06</iyz>
+            <izz>0.0155136</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel_left_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/wheel_left_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel_left_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/wheel_left_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='swing_arm_right_joint' type='revolute'>
+        <pose relative_to='base_footprint'>0.1575 -0.21 0.1298 1.5708 -0 0</pose>
+        <parent>base_footprint</parent>
+        <child>swing_arm_right_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='swing_arm_right_link'>
+        <pose relative_to='swing_arm_right_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.083791 -0.023764 -0.044595 0 -0 0</pose>
+          <mass>13.9</mass>
+          <inertia>
+            <ixx>0.0177365</ixx>
+            <ixy>-0.00363767</ixy>
+            <ixz>3.59191e-06</ixz>
+            <iyy>0.0469077</iyy>
+            <iyz>1.43367e-06</iyz>
+            <izz>0.052747</izz>
+          </inertia>
+        </inertial>
+        <collision name='swing_arm_right_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/swing_arm_right_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='swing_arm_right_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/swing_arm_right_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='caster_front_right_joint' type='revolute'>
+        <pose relative_to='swing_arm_right_link'>0.1575 -0.029 -0.0125 -1.5708 0 0</pose>
+        <parent>swing_arm_right_link</parent>
+        <child>caster_front_right_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='caster_front_right_link'>
+        <pose relative_to='caster_front_right_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-0.009168 0.000149 -0.02325 0 -0 0</pose>
+          <mass>0.148885</mass>
+          <inertia>
+            <ixx>8.24464e-05</ixx>
+            <ixy>1.14375e-08</ixy>
+            <ixz>-1.83744e-05</ixz>
+            <iyy>8.10551e-05</iyy>
+            <iyz>1.10685e-08</iyz>
+            <izz>0.000103111</izz>
+          </inertia>
+        </inertial>
+        <collision name='caster_front_right_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_front_right_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='caster_front_right_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_front_right_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='caster_wheel_front_right_joint' type='revolute'>
+        <pose relative_to='caster_front_right_link'>-0.038 0 -0.062 1.5708 -0 0</pose>
+        <parent>caster_front_right_link</parent>
+        <child>caster_wheel_front_right_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='caster_wheel_front_right_link'>
+        <pose relative_to='caster_wheel_front_right_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>-2.8e-05 2.1e-05 1e-05 0 -0 0</pose>
+          <mass>0.286815</mass>
+          <inertia>
+            <ixx>0.000143519</ixx>
+            <ixy>-1.53303e-08</ixy>
+            <ixz>1.63294e-08</ixz>
+            <iyy>0.000143501</iyy>
+            <iyz>-4.50288e-08</iyz>
+            <izz>0.000245135</izz>
+          </inertia>
+        </inertial>
+        <collision name='caster_wheel_front_right_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_wheel_front_right_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='caster_wheel_front_right_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/caster_wheel_front_right_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wheel_right_joint' type='revolute'>
+        <pose relative_to='swing_arm_right_link'>-0.1575 -0.054 0.037 0 -0 0</pose>
+        <parent>swing_arm_right_link</parent>
+        <child>wheel_right_link</child>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <effort>100</effort>
+            <velocity>50</velocity>
+            <lower>-1e+16</lower>
+            <upper>1e+16</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='wheel_right_link'>
+        <pose relative_to='wheel_right_joint'>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 -9.3e-05 -3.3e-05 0 -0 0</pose>
+          <mass>4.92029</mass>
+          <inertia>
+            <ixx>0.00862426</ixx>
+            <ixy>-2.70523e-08</ixy>
+            <ixz>4.32845e-09</ixz>
+            <iyy>0.00861562</iyy>
+            <iyz>-2.85497e-06</iyz>
+            <izz>0.0155136</izz>
+          </inertia>
+        </inertial>
+        <collision name='wheel_right_link_collision'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/wheel_right_link.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wheel_right_link_visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/aeksiri/smr200_ws/src/smr200_description/meshes/wheel_right_link.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>0</static>
+      <plugin name='differential_drive_controller' filename='libgazebo_ros_diff_drive.so'>
+        <updateRate>40</updateRate>
+        <publishTf>1</publishTf>
+        <leftJoint>wheel_left_joint</leftJoint>
+        <rightJoint>wheel_right_joint</rightJoint>
+        <wheelSeparation>0.494</wheelSeparation>
+        <wheelDiameter>0.15</wheelDiameter>
+        <wheelAcceleration>1.0</wheelAcceleration>
+        <wheelTorque>100.0</wheelTorque>
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <publishOdomTF>1</publishOdomTF>
+        <odometrySource>world</odometrySource>
+        <robotBaseFrame>base_footprint</robotBaseFrame>
+        <odometrySource>world</odometrySource>
+        <publishWheelTF>0</publishWheelTF>
+        <publishOdom>1</publishOdom>
+        <publishWheelJointState>1</publishWheelJointState>
+        <legacyMode>0</legacyMode>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <pose>0 0 0.005 0 -0 0</pose>
+    </model>
+    <state world_name='default'>
+      <sim_time>111 586000000</sim_time>
+      <real_time>143 370824421</real_time>
+      <wall_time>1637571069 839216736</wall_time>
+      <iterations>111586</iterations>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='smr200'>
+        <pose>1.73374 -1.22688 -0.000221 3.2e-05 -0.000983 -1.32475</pose>
+        <scale>1 1 1</scale>
+        <link name='base_footprint'>
+          <pose>1.73374 -1.22688 -0.000221 3.2e-05 -0.000983 -1.32475</pose>
+          <velocity>0.00226 -0.023862 -0.009308 -0.031477 0.036074 -0.024491</velocity>
+          <acceleration>2.49847 0.705262 -2.72394 -1.02262 0.784997 -2.14725</acceleration>
+          <wrench>265.505 74.9461 -289.465 0 -0 0</wrench>
+        </link>
+        <link name='caster_front_left_link'>
+          <pose>2.00202 -1.48431 0.101781 -0.000285 0.00134 -1.04822</pose>
+          <velocity>0.000173 -0.024036 -0.08907 -1.38913 -0.50321 -0.258941</velocity>
+          <acceleration>7.86073 -37.5197 -115.528 2.27206 -1.38298 2.33541</acceleration>
+          <wrench>1.17034 -5.58612 -17.2004 0 -0 0</wrench>
+        </link>
+        <link name='caster_front_right_link'>
+          <pose>1.61891 -1.58052 0.101827 0.001636 0.004459 -1.9757</pose>
+          <velocity>-0.003184 -0.015658 0.003273 0.367455 -0.038982 -0.160369</velocity>
+          <acceleration>4.24265 40.7431 99.0758 0.519002 0.063843 0.72699</acceleration>
+          <wrench>0.631667 6.06604 14.7509 0 -0 0</wrench>
+        </link>
+        <link name='caster_rear_left_link'>
+          <pose>1.86456 -0.885635 0.101638 -0.000864 0.005197 -1.42208</pose>
+          <velocity>0.014977 -0.024621 -0.060665 -1.48385 -0.433334 0.235684</velocity>
+          <acceleration>9.95647 -44.6348 -88.4302 -1.77522 0.173335 2.15181</acceleration>
+          <wrench>1.48237 -6.64545 -13.1659 0 -0 0</wrench>
+        </link>
+        <link name='caster_rear_right_link'>
+          <pose>1.45721 -0.987946 0.101642 -0.000842 0.005814 -1.42039</pose>
+          <velocity>0.011749 -0.013023 -0.04809 -1.67769 -0.460668 0.251043</velocity>
+          <acceleration>9.91969 -51.3206 -71.1412 1.01517 -0.563873 2.033</acceleration>
+          <wrench>1.47689 -7.64086 -10.5919 0 -0 0</wrench>
+        </link>
+        <link name='caster_wheel_front_left_link'>
+          <pose>1.98314 -1.45165 0.0398 1.5708 0.65833 2.09342</pose>
+          <velocity>0.006361 -0.021894 -0.13681 0.381319 0.601508 -0.271295</velocity>
+          <acceleration>-4.04714 0.825321 -151.86 2.97331 -0.573939 -2.14087</acceleration>
+          <wrench>-1.16078 0.236714 -43.5556 0 -0 0</wrench>
+        </link>
+        <link name='caster_wheel_front_right_link'>
+          <pose>1.63396 -1.54585 0.039952 1.58202 1.4709 -1.96458</pose>
+          <velocity>-4.8e-05 -0.013775 0.01527 0.32781 0.004802 -0.159335</velocity>
+          <acceleration>2.35528 4.69887 146.095 -1.43156 1.26917 0.86654</acceleration>
+          <wrench>0.675529 1.3477 41.9024 0 -0 0</wrench>
+        </link>
+        <link name='caster_wheel_rear_left_link'>
+          <pose>1.85891 -0.848072 0.039803 1.57363 -1.15969 1.71697</pose>
+          <velocity>0.01114 -0.037621 -0.111818 0.403716 -0.218309 0.220638</velocity>
+          <acceleration>3.75895 -24.696 -126.073 -0.404194 0.744441 1.86608</acceleration>
+          <wrench>1.07812 -7.08319 -36.1596 0 -0 0</wrench>
+        </link>
+        <link name='caster_wheel_rear_right_link'>
+          <pose>1.45249 -0.950249 0.039829 -1.56966 -0.001577 1.72124</pose>
+          <velocity>0.006799 -0.024654 -0.105656 0.228047 -0.247376 0.239506</velocity>
+          <acceleration>1.55926 -18.7955 -120.903 2.27431 0.092666 2.35952</acceleration>
+          <wrench>0.44722 -5.39083 -34.6767 0 -0 0</wrench>
+        </link>
+        <link name='swing_arm_left_link'>
+          <pose>1.97574 -1.32836 0.129751 -1.5706 -0.005559 -1.32474</pose>
+          <velocity>0.004847 -0.025447 -0.018229 0.185051 0.10412 -0.024731</velocity>
+          <acceleration>-5.95832 -0.545103 15.5353 -3.08593 -0.944823 1.01891</acceleration>
+          <wrench>-82.8206 -7.57693 215.941 0 -0 0</wrench>
+        </link>
+        <link name='swing_arm_right_link'>
+          <pose>1.56839 -1.43067 0.129727 1.57081 -0.005482 -1.32475</pose>
+          <velocity>0.00335 -0.015752 0.003265 0.030523 0.050208 -0.022557</velocity>
+          <acceleration>-4.90495 -6.91695 20.8859 0.368534 0.7358 0.078852</acceleration>
+          <wrench>-68.1788 -96.1456 290.314 0 -0 0</wrench>
+        </link>
+        <link name='wheel_left_link'>
+          <pose>1.97335 -1.16689 0.074879 -1.57028 0.059518 -1.32469</pose>
+          <velocity>0.004416 -0.014919 0.010877 0.199684 0.059461 -0.02246</velocity>
+          <acceleration>-7.25612 6.72204 28.2646 1.58326 -0.645817 -1.19981</acceleration>
+          <wrench>-35.7022 33.0744 139.07 0 -0 0</wrench>
+        </link>
+        <link name='wheel_right_link'>
+          <pose>1.49421 -1.28721 0.074874 1.57063 -0.058152 -1.32476</pose>
+          <velocity>0.003453 -0.008394 0.010276 0.110759 0.043004 -0.032</velocity>
+          <acceleration>-8.11989 -3.89225 27.2822 -0.033763 1.08689 -1.43398</acceleration>
+          <wrench>-39.9522 -19.151 134.236 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>1.91266 0.495422 1.25662 0 0.803643 -1.96299</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>

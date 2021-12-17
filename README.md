@@ -1,2 +1,2 @@
-# smr200_description
-smr200 robot's description
+# smr200
+Smart Mobile Robot
