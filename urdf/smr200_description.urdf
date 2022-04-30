@@ -2191,6 +2191,8 @@
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 
+      <rosDebugLevel>1</rosDebugLevel>  
+         
       <!-- Plugin update rate in Hz -->
       <updateRate>40</updateRate>
 
